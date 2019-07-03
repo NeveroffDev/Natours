@@ -1,0 +1,86 @@
+.section-about{
+  background-color: $dark-gray-color-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+  @include respond(tab-port){
+    padding: 20rem 0 25rem 0;
+  }
+}
+
+.section-features{
+  padding: 20rem 0;
+  background-image:linear-gradient(
+                  to right bottom,
+                  rgba($primary-color-light, 0.8),
+                  rgba($primary-color-dark, 0.8)),
+  url('../img/nat-4.jpg');
+  background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -13rem;
+
+
+  & > *{
+    transform: skewY(7deg);
+  }
+
+  @include respond(tab-port){
+    padding: 10rem 0 10rem 0;
+  }
+}
+
+.section-tours{
+  padding: 25rem 0 10rem 0;
+  margin-top: -10rem;
+  background-color: $dark-gray-color-1;
+  @include respond(tab-port){
+    padding: 20rem 0 10rem 0;
+  }
+}
+
+.section-stories{
+  position: relative;
+  padding: 15rem 0;
+  @include respond(tab-port){
+    padding: 10rem 0;
+  }
+}
+
+.section-book{
+  padding: 15rem 0;
+  background: linear-gradient($primary-color-light, $primary-color-dark);
+}
+
+.book{
+  background: linear-gradient(105deg, rgba($white-color, .9) 0%,
+                                      rgba($white-color, .9) 50%,
+          transparent 50%), url("../img/nat-10.jpg");
+  background-size: 100%;
+  box-shadow: 0 1.5rem 4rem rgba($black-color, .5);
+  border-radius: 2px;
+
+  @include respond(tab-land) {
+    background: linear-gradient(105deg, rgba($white-color, .9) 0%,
+            rgba($white-color, .9) 75%,
+            transparent 75%), url("../img/nat-10.jpg");
+    background-size: cover;
+
+  }
+  @include respond(tab-port){
+    background: linear-gradient(to right, rgba($white-color, .9) 0%,
+            rgba($white-color, .9) 100%), url("../img/nat-10.jpg");
+    background-size: cover;
+
+  }
+
+  &__form{
+    width: 50%;
+    padding: 6rem;
+    @include respond(tab-land) {
+      width: 75%;
+      padding: 4rem;
+    }
+    @include respond(tab-port){
+      width: 100%;
+    }
+  }
+}

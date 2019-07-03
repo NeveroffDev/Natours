@@ -1,0 +1,94 @@
+
+.btn{
+  &,
+  &:link,
+  &:visited{
+    cursor: pointer;
+    border: none;
+    z-index: 1;
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10rem;
+    box-shadow: 0 .2rem .5rem rgba($black-color,0.35);
+    transition: all 0.2s ease;
+    position: relative;
+    font-size: 1.6rem;
+    transform: translateY(0);
+  }
+  &:hover{
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba($black-color,0.2);
+    &::after{
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active,
+  &:focus{
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($black-color,0.3);
+  }
+
+  &::after{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10rem;
+    z-index: -1;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+  }
+
+  &--white{
+    background-color: $white-color;
+    color: $dark-gray-color-2;
+    &::after{
+      background-color: $white-color;
+    }
+  }
+  &--green{
+
+    background-color: $primary-color-medium;
+    color: $white-color;
+    &::after{
+      background-color: $primary-color-medium;
+    }
+  }
+
+  &--animated{
+    animation: moveToTop 0.6s ease 0.8s;
+    animation-fill-mode: backwards;
+  }
+
+}
+
+.btn-text{
+  &:link,
+  &:visited{
+    @include animation-fix;
+    display: inline-block;
+    font-size: $default-text-size;
+    color: $primary-color-medium;
+    text-decoration: none;
+    border-bottom: 1px solid $primary-color-medium;
+    padding: 3px;
+    transition: all .3s ease;
+  }
+  &:hover{
+    color: $white-color;
+    background-color: $primary-color-medium;
+    transform: translateY(-.2rem);
+    box-shadow: 0 .5rem 1rem rgba($black-color, .15);
+  }
+  &:active{
+    transform: translateY(0);
+    box-shadow: 0 .1rem .5rem rgba($black-color, .2);
+  }
+}

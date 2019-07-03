@@ -1,0 +1,97 @@
+.form{
+  &__group{
+    &:not(:last-child){
+      margin-bottom: 2rem;
+    }
+  }
+  &__input{
+    font-family: "Lato", sans-serif;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($white-color, .8);
+    display: block;
+    width: 90%;
+    border:none;
+    border-bottom: 3px solid transparent;
+    transition: all .4s ease;
+    @include respond(tab-port){
+      width: 100%;
+    }
+    &:focus{
+      outline: none;
+      border-bottom: 3px solid $primary-color-medium;
+      box-shadow: 0 1rem 2rem rgba($black-color, .1);
+    }
+    &:focus:invalid{
+      border-bottom: 3px solid $secondary-color-dark;
+    }
+  }
+  &__label{
+    display: block;
+    margin-left: 2rem;
+    font-weight: 700;
+    margin-top: .7rem;
+    line-height: 1.5rem;
+    transition: all .4s ease;
+  }
+
+  &__input:placeholder-shown + &__label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+    font-size: 1.5rem;
+  }
+
+  &__radio-group{
+    width: 49%;
+    display: inline-block;
+    @include respond(tab-land){
+      width: 30%;
+    }
+    @include respond(tab-port){
+      width: 49%;
+    }
+    @include respond(phone){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  &__radio-input{
+    display: none;
+  }
+  &__radio-label{
+    font-size: $default-text-size;
+    cursor: pointer;
+    padding-left: 4rem;
+    position: relative;
+    font-weight: 700;
+  }
+  &__radio-button{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 3px solid $primary-color-medium;
+    display: inline-block;
+    position: absolute;
+    top: -.4rem;
+    left: 0;
+    &::after{
+      content: '';
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: $primary-color-medium;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+  }
+  &__radio-input:checked ~ &__radio-label &__radio-button:after{
+    opacity: 1;
+  }
+}
